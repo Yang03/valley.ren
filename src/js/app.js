@@ -1,7 +1,7 @@
 
 var width = window.innerWidth
 var SW = new SiriWave({
-    width: 500,
+    width: 450,
     height: 100,
     speed: 0.03,
     amplitude: 1,
