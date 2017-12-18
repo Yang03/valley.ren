@@ -10,3 +10,6 @@ var SW = new SiriWave({
     color : '#000',
     style: 'ios9',
 });
+
+$('.carousel').carousel()
+
