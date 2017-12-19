@@ -8,14 +8,14 @@
 }
 
 .navbar-nav > li > a:hover {
-    color: #55acee;
+    color: #28a745;
     background-color: transparent;
 }
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     background-color: transparent;
     border-color: transparent;
-    color: #55acee
+    color: #28a745
 }
 
 .navbar-nav>li>a {
@@ -117,8 +117,8 @@
 }
 
 .banner .btn {
-    border: 1px solid #076bf2;
-    background-color: #076bf2;
+    border: 1px solid #28a745;
+    background-color: #28a745;
     color:#fff;
     width: 150px;
     height: 40px;
