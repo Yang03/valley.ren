@@ -1,0 +1,91 @@
+.header {
+    &-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1
+    }
+    &-login {
+        float: left;
+        margin-left: 200px;
+
+        a {
+            font-size: 16px;
+            border-radius: 2px;
+            border: 1px solid #fff;
+            padding: 5px 30px;
+            display: inline-block;
+            margin-top: 10px;
+        } 
+        &__button--hollow {
+            color: #fff;
+            background: transparent;
+            margin-right: 20px;
+            &:hover {
+                color: #5c984a;
+                background: #fff;
+            }
+        }
+        &__button {
+            color: #5c984a;
+            background: #fff;
+            &:hover {
+                color: #fff;
+                background: #5c984a;
+                border: 1px solid #5c984a;
+            }
+        }
+
+    }
+    &__logo {
+        width: 100px;
+        float: left;
+    }
+    &__nav {
+        color: #fff;
+        margin-left: 400px;
+        &-item {
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 25px;
+            position: relative;
+
+            > a {
+                color: #fff;
+                font-size: 16px;
+                padding: 10px 0;
+                &:hover {
+                    color: #5c984a
+                }
+            } 
+        }
+    }
+    &__drop-menu {
+        display: none;
+        position: absolute;
+        top:50px;
+        left: -20px;
+        width: 150px;
+        background: #fff;
+        border-radius: 2px;
+        border-top:2px solid #5c984a;
+
+        > li {
+            display: block;
+            float: none;
+            line-height: 40px;
+            padding: 0;
+            text-align: center; 
+        }
+    }
+    &__drop-menu-item {
+        color: #4da998;
+        display: block;
+
+        &:hover {
+            background: #f1f1f1
+        }
+    }
+}

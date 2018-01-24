@@ -1,0 +1,35 @@
+.product {
+    &-container {
+        width: 1200px;
+        margin: 40px auto;
+    }
+    &__title {
+        font-size: 28px;
+        color: #333;
+        text-align: center;
+        line-height: 1.5
+    }
+    &__sub-title {
+        font-size: 16px;
+        color: #999;
+        text-align: center;
+    }
+    &__item {
+        float: left;
+        width: 33.33%;
+        text-align: center;
+        margin-top: 40px;
+
+        &-title {
+            color: #333;
+            font-size: 18px;
+            padding-top: 10px;
+        }
+        &-descrption {
+            text-align: center;
+            padding: 10px 50px;
+            color:#666
+        }
+    }
+
+}

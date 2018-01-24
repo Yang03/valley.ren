@@ -1,0 +1,128 @@
+@import './lib/reset';
+@import './component/header';
+@import './component/swiper';
+@import './component/product';
+@import './component/advantage';
+@import './component/case';
+
+
+.clearfix::after {
+    content: "";
+	display: table;
+	clear: both;
+}
+
+.btn--primary {
+    color: #fff;
+    background: #77b863;
+    padding: 8px 40px;
+    font-size: 16px;
+    border-radius: 5px
+}
+	
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.guide {
+    &__title {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        margin: 30px auto; 
+        position: relative;
+        &::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #55af93;
+            background: linear-gradient(to right, #55af93, #84cc86);
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 40px;
+        }     
+    }
+    &__content {
+        text-align: center;
+        position: relative;
+        min-width: 1200px;
+
+        img {
+            width: 100%;
+        }
+    }
+    &__btn {
+        position: absolute;
+        bottom: 50px;
+        width: 120px;
+        box-sizing: border-box;
+        left: 50%;
+        margin-left: -60px;
+
+        &:hover {
+            color: #fff
+        }
+
+    }
+} 
+
+.site-map {
+    background: #353736;
+    height: 300px;
+
+    &__content {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 60px 100px;
+
+        &--left {
+            float: left;
+            width: 100px;
+            padding-left: 160px
+        }
+        &--center {
+            float: left;
+            width: 100px;
+            padding-left: 60px
+        }
+        &--right {
+            float: left;
+            width: 160px;
+            padding-left: 570px
+        }
+
+        h3 {
+            color: #fff;
+        }
+
+        ul, li {
+            padding: 10px 0;
+            color: #a2a1a0
+        }
+    }
+
+}
+
+footer {
+    min-width: 1200px;
+    text-align: center;
+    background: #353736;
+    color: #a2a1a0;
+    height: 100px;
+    line-height: 100px;
+    border-top: 2px solid #585857;
+}
+
+
+
+
+
+
+
+
+
+
+
