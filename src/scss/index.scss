@@ -52,6 +52,7 @@
 
         img {
             width: 100%;
+            min-width: 1200px;
         }
     }
     &__btn {
@@ -72,11 +73,14 @@
 .site-map {
     background: #353736;
     height: 300px;
+    min-width: 1200px;
 
     &__content {
         width: 1200px;
         margin: 0 auto;
+        box-sizing: border-box;
         padding: 60px 100px;
+        overflow: hidden;
 
         &--left {
             float: left;
@@ -91,7 +95,8 @@
         &--right {
             float: left;
             width: 160px;
-            padding-left: 570px
+            padding-left: 370px;
+            overflow: hidden;
         }
 
         h3 {

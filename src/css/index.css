@@ -419,7 +419,8 @@ a {
   position: relative;
   min-width: 1200px; }
   .guide__content img {
-    width: 100%; }
+    width: 100%;
+    min-width: 1200px; }
 
 .guide__btn {
   position: absolute;
@@ -433,11 +434,14 @@ a {
 
 .site-map {
   background: #353736;
-  height: 300px; }
+  height: 300px;
+  min-width: 1200px; }
   .site-map__content {
     width: 1200px;
     margin: 0 auto;
-    padding: 60px 100px; }
+    box-sizing: border-box;
+    padding: 60px 100px;
+    overflow: hidden; }
     .site-map__content--left {
       float: left;
       width: 100px;
@@ -449,7 +453,8 @@ a {
     .site-map__content--right {
       float: left;
       width: 160px;
-      padding-left: 570px; }
+      padding-left: 370px;
+      overflow: hidden; }
     .site-map__content h3 {
       color: #fff; }
     .site-map__content ul, .site-map__content li {
