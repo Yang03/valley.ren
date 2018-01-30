@@ -4,6 +4,8 @@
 @import './component/product';
 @import './component/advantage';
 @import './component/case';
+@import './component/guide';
+@import './component/site-map';
 
 
 .clearfix::after {
@@ -19,14 +21,33 @@
     font-size: 16px;
     border-radius: 5px
 }
-	
+    
+
 .container {
     width: 1200px;
     margin: 0 auto;
     position: relative;
 }
 
-.guide {
+footer {
+    min-width: 1200px;
+    text-align: center;
+    background: #353736;
+    color: #a2a1a0;
+    height: 100px;
+    line-height: 100px;
+    border-top: 2px solid #585857;
+}
+
+a {
+    color: inherit;
+}
+
+.white {
+    color: #fff
+}
+
+.section {
     &__title {
         font-size: 24px;
         color: #333;
@@ -43,83 +64,92 @@
             left: 50%;
             margin-left: -40px;
             top: 40px;
-        }     
-    }
-    &__content {
-        text-align: center;
-        position: relative;
-        min-width: 1200px;
+        } 
+    }     
+}
 
-        img {
-            width: 100%;
-            min-width: 1200px;
-        }
-    }
-    &__btn {
-        position: absolute;
-        bottom: 50px;
-        width: 120px;
-        box-sizing: border-box;
-        left: 50%;
-        margin-left: -60px;
+.product{
 
-        &:hover {
-            color: #fff
-        }
-
-    }
-} 
-
-.site-map {
-    background: #353736;
-    height: 260px;
-    min-width: 1200px;
-
-    &__content {
-        width: 1200px;
-        margin: 0 auto;
-        box-sizing: border-box;
-        padding: 60px 100px;
+    &-box {
+        background: #f7fbfe;
         overflow: hidden;
+        position: relative;
+    }
+    &__center {
+        position: relative;
+        top: -100px;
 
-        &--left {
-            float: left;
-            width: 100px;
-            padding-left: 160px
-        }
-        &--center {
-            float: left;
-            width: 100px;
-            padding-left: 60px
-        }
-        &--right {
-            float: left;
-            width: 160px;
-            padding-left: 370px;
-            overflow: hidden;
+        span {
+            padding-right: 6px;
+            color: #77b863;
         }
 
-        h3 {
-            color: #fff;
-        }
-
-        ul, li {
-            padding: 10px 0;
-            color: #a2a1a0
-        }
+    } 
+    
+    &-point--left {
+        position: absolute;
+        left: 200px;
+        top: 430px
+    }
+    &-point--right {
+        position: absolute;
+        left: 620px;
+        top: 190px;
+    }
+    &-info--right {
+        position: absolute;
+        left: 300px;
+        top: -10px;
+        width: 200px
+    }
+    &-info--left {
+        position: absolute;
+        left: -120px;
+        top: -10px;
+        width: 200px
     }
 
 }
 
-footer {
+@mixin banner($img) {
     min-width: 1200px;
     text-align: center;
-    background: #353736;
-    color: #a2a1a0;
-    height: 100px;
-    line-height: 100px;
-    border-top: 2px solid #585857;
+    height: 594px;
+    background: #0da798;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 1920px 594px;
+    background-image: url($img)
 }
+.message-banner {
+    @include banner('../images/banner-3.jpg')
+}
+.voice-banner {
+    @include banner('../images/banner-1.png')
+}
+.video-banner {
+    @include banner('../images/banner-2.png')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
