@@ -1,0 +1,40 @@
+.site-map {
+    background: #353736;
+    height: 260px;
+    min-width: 1200px;
+
+    &__content {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 60px 35px;
+        overflow: hidden;
+
+        &--left {
+            float: left;
+            width: 100px;
+            padding-left: 0px
+        }
+        &--center {
+            float: left;
+            width: 100px;
+            padding-left: 60px
+        }
+        &--right {
+            float: left;
+            width: 160px;
+            padding-left: 670px;
+            overflow: hidden;
+        }
+
+        h3 {
+            color: #fff;
+        }
+
+        ul, li {
+            padding: 10px 0;
+            color: #a2a1a0
+        }
+    }
+
+}

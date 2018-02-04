@@ -1,0 +1,91 @@
+.guide {
+    width: 100%;
+    background: url('../images/guide.jpeg') no-repeat;
+    height: 497px;
+    background-position: left 30px;
+    &__title {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        margin: 30px auto; 
+        position: relative;
+        &::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #55af93;
+            background: linear-gradient(to right, #55af93, #84cc86);
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            top: 40px;
+        }     
+    }
+    &__content {
+        text-align: center;
+        position: relative;
+        width: 1200px;
+        height: 444px;
+        margin: 0 auto;
+        background: url("../images/guide-center.png") no-repeat;
+
+        img {
+            width: 100%;
+            min-width: 1200px;
+        }
+    }
+    &__btn {
+        position: absolute;
+        bottom: 50px;
+        width: 120px;
+        box-sizing: border-box;
+        left: 50%;
+        margin-left: -60px;
+
+        &:hover {
+            color: #fff
+        }
+
+    }
+} 
+
+.site-map {
+    background: #353736;
+    height: 260px;
+    min-width: 1200px;
+
+    &__content {
+        width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 60px 100px;
+        overflow: hidden;
+
+        &--left {
+            float: left;
+            width: 100px;
+            padding-left: 160px
+        }
+        &--center {
+            float: left;
+            width: 100px;
+            padding-left: 60px
+        }
+        &--right {
+            float: left;
+            width: 160px;
+            padding-left: 370px;
+            overflow: hidden;
+        }
+
+        h3 {
+            color: #fff;
+        }
+
+        ul, li {
+            padding: 10px 0;
+            color: #a2a1a0
+        }
+    }
+
+}

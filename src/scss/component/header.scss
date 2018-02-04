@@ -10,18 +10,16 @@
         float: left;
         margin-left: 200px;
 
-        a {
+        &__button--hollow {
+            color: #fff;
+            background: transparent;
+            margin-right: 20px;
             font-size: 16px;
             border-radius: 2px;
             border: 1px solid #fff;
             padding: 5px 30px;
             display: inline-block;
             margin-top: 10px;
-        } 
-        &__button--hollow {
-            color: #fff;
-            background: transparent;
-            margin-right: 20px;
             &:hover {
                 color: #5c984a;
                 background: #fff;
@@ -30,6 +28,12 @@
         &__button {
             color: #5c984a;
             background: #fff;
+            font-size: 16px;
+            border-radius: 2px;
+            border: 1px solid #fff;
+            padding: 5px 30px;
+            display: inline-block;
+            margin-top: 10px;
             &:hover {
                 color: #fff;
                 background: #5c984a;
@@ -55,7 +59,8 @@
             > a {
                 color: #fff;
                 font-size: 16px;
-                padding: 10px 0;
+                display: inline-block;
+                height: 60px;
                 &:hover {
                     color: #5c984a
                 }
@@ -65,12 +70,14 @@
     &__drop-menu {
         display: none;
         position: absolute;
-        top:50px;
+        top:60px;
         left: -20px;
         width: 150px;
         background: #fff;
         border-radius: 2px;
+        border: 1px solid #d1d1d1;
         border-top:2px solid #5c984a;
+        z-index: 111;
 
         > li {
             display: block;
@@ -88,4 +95,23 @@
             background: #f1f1f1
         }
     }
+}
+
+.header {
+    &-container--white {
+       border-bottom: 1px solid #d1d1d1;
+    }
+    &__nav--white a {
+        color: #333; 
+    }
+}
+
+.login__button--hollow {
+    border: 1px solid #77b863;
+    font-size: 16px;
+    border-radius: 2px;
+    padding: 5px 30px;
+    display: inline-block;
+    margin-top: 15px;
+    color: #77b863;
 }

@@ -44,3 +44,13 @@ $swiperIndex.on('click', '.case__swiper-index', function(){
   var index = $(this).data('index')
   caseSwipe.slide(index)
 })
+
+var $tabIndex = $('.tab__index a')
+
+$tabIndex.on('click', function(){
+  $tabIndex.removeClass('active')
+  $(this).addClass('active')
+  var index = $(this).data('index')
+  $('.tab__content').hide()
+  $('.tab__content').eq(index-1).show()
+})
