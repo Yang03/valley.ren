@@ -122,7 +122,6 @@ ul, li {
   width: 150px;
   background: #fff;
   border-radius: 2px;
-  border: 1px solid #d1d1d1;
   border-top: 2px solid #5c984a;
   z-index: 111; }
   .header__drop-menu > li {
@@ -140,6 +139,8 @@ ul, li {
 
 .header-container--white {
   border-bottom: 1px solid #d1d1d1; }
+  .header-container--white .login__button--hollow {
+    margin-right: 10px; }
 
 .header__nav--white a {
   color: #333; }
@@ -779,7 +780,9 @@ a {
   float: left;
   margin: 0px 20px 40px 20px; }
   .sdk__item-head {
-    padding: 20px 0; }
+    padding: 20px 0;
+    height: 40px;
+    overflow: hidden; }
     .sdk__item-head span {
       font-size: 24px;
       display: inline-block;
@@ -806,8 +809,8 @@ a {
   .sdk__item-footer {
     color: #666;
     background: #f7fbfe;
-    height: 50px;
-    line-height: 50px; }
+    height: 40px;
+    line-height: 40px; }
     .sdk__item-footer a {
       padding: 0 3px; }
 
@@ -816,19 +819,18 @@ a {
   margin: 100px auto;
   overflow: hidden; }
   .product-price__item {
-    float: left;
-    margin: 40px 28px;
-    height: 300px;
-    width: 540px;
-    border: 1px solid #d1d1d1; }
-    .product-price__item-head {
-      height: 100px;
-      background: #82c87a; }
-      .product-price__item-head h3 {
-        text-align: center;
-        color: #fff;
-        font-size: 24px;
-        line-height: 100px; }
-    .product-price__item-content {
-      padding: 20px 30px;
-      font-size: 16px; }
+    width: 100%;
+    margin-bottom: 20px; }
+    .product-price__item h3 {
+      color: #333;
+      font-size: 20px;
+      padding-bottom: 10px; }
+    .product-price__item table {
+      border: 1px solid #d1d1d1;
+      border-collapse: collapse; }
+      .product-price__item table tr, .product-price__item table td {
+        border: 1px solid #d1d1d1; }
+      .product-price__item table td {
+        width: 180px;
+        height: 40px;
+        padding-left: 10px; }

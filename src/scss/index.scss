@@ -336,6 +336,8 @@ a {
 
     &-head {
         padding: 20px 0;
+        height: 40px;
+        overflow: hidden;
 
         span {
             font-size: 24px;
@@ -372,8 +374,8 @@ a {
     &-footer {
         color: #666;
         background: #f7fbfe;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
 
         a {
             padding: 0 3px;
@@ -387,27 +389,29 @@ a {
     overflow: hidden;
 
     &__item {
-        float: left;
-        margin: 40px 28px;
-        height: 300px;
-        width: 540px;
-        border: 1px solid #d1d1d1;
+        width: 100%;
+        margin-bottom: 20px;
 
-        &-head {
-            height: 100px;
-            background: #82c87a;   
-            
-            h3 {
-                text-align: center;
-                color: #fff;
-                font-size: 24px;
-                line-height: 100px;
-            }
+        h3 {
+            color: #333;
+            font-size: 20px;
+            padding-bottom: 10px;
         }
-        &-content {
-            padding: 20px 30px;
-            font-size: 16px;
+
+        table {
+            border: 1px solid #d1d1d1;
+            border-collapse: collapse;
+
+            tr, td {
+                border: 1px solid #d1d1d1;
+            } 
+            td {
+                width: 180px;
+                height: 40px; 
+                padding-left: 10px;   
+            }
         }
     }
 }
+
 

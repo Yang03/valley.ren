@@ -75,7 +75,6 @@
         width: 150px;
         background: #fff;
         border-radius: 2px;
-        border: 1px solid #d1d1d1;
         border-top:2px solid #5c984a;
         z-index: 111;
 
@@ -95,11 +94,16 @@
             background: #f1f1f1
         }
     }
+    
 }
 
 .header {
     &-container--white {
        border-bottom: 1px solid #d1d1d1;
+
+       .login__button--hollow {
+            margin-right: 10px;
+        }
     }
     &__nav--white a {
         color: #333; 
