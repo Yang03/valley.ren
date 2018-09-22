@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="谷人云valley.ren致力于提供实时语音、视频连麦互动解决方案，为客户提供最贴合业务需求,最快最稳定最开放的实时互动音视频组件,并将长期全力以赴。">
+    <meta name="keywords" content="视频连麦, 视频互动, 语音连麦, 连麦, 多人语音, 主播连麦, 视频会议, 谷人云, 谷人语音, 电话会议, VOIP, 游戏语音, 语音互动, 谷人云">
+    <title>谷人云 - 实时连麦，从此沟通不再延迟</title>
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <ul>
+        <li>FLV container with H.264 + AAC / MP3 codec playback</li>
+        <li>Multipart segmented video playback</li>
+        <li>HTTP FLV low latency live stream playback</li>
+        <li>FLV over WebSocket live stream playback</li>
+        <li>Compatible with Chrome, FireFox, Safari 10, IE11 and Edge</li>
+        <li>Extremely low overhead, and hardware accelerated by your browser!</li>
+        </ul>
+    <div class="mainContainer">
+            <video id="videoElement"></video>
+    </div>
+
+    <script src="js/flv.js"></script>
+        
+    <script>
+        if (flvjs.isSupported()) {
+            var videoElement = document.getElementById('videoElement');
+            var flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://paoba1.qingcdn.com/live/test.flv'
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
+       
+    </script>
+    
+</body>
+
+</html>
