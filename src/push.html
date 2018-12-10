@@ -43,7 +43,7 @@ rtmp push name:
             };
 
             var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
-            streamer.setScreenPosition(100, 100)
+            
             //var player = new RtmpStreamer(document.getElementById('rtmp-player'));
 
             // document.getElementById("play").addEventListener("click", function () {
@@ -53,6 +53,7 @@ rtmp push name:
             document.getElementById("publish").addEventListener("click", function () {
                 
                 streamer.publish(getUrl(), getName());
+                streamer.setScreenPosition(100, 100)
                 window.streamer = streamer
             });
 
