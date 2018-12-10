@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="谷人云valley.ren致力于提供实时语音、视频连麦互动解决方案，为客户提供最贴合业务需求,最快最稳定最开放的实时互动音视频组件,并将长期全力以赴。">
+    <meta name="keywords" content="视频连麦, 视频互动, 语音连麦, 连麦, 多人语音, 主播连麦, 视频会议, 谷人云, 谷人语音, 电话会议, VOIP, 游戏语音, 语音互动, 谷人云">
+    <title>谷人云 - 实时连麦，从此沟通不再延迟</title>
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+
+<body>
+   
+    <h2>Streamer</h2>
+<object>
+    <embed id="rtmp-streamer" src="js/RtmpStreamer.swf" bgcolor="#999999" quality="high"
+           width="320" height="240" type="application/x-shockwave-flash"></embed>
+</object>
+<br>
+<button id="publish"> push</button>
+<button id="streamer-disconnect"> disconnect</button>
+
+<hr>
+
+<h2>Player</h2>
+<object>
+    <embed id="rtmp-player" src="js/RtmpStreamer.swf" bgcolor="#999999" quality="high"
+           width="320" height="240"  type="application/x-shockwave-flash"></embed>
+</object>
+<br>
+<button id="play"> play</button>
+<button id="player-disconnect"> disconnect</button>
+
+</body>
+
+    
+    <script src="js/stream.js"></script>
+    <script>
+        window.onload = function() {
+            var pushUrl = 'rtmp://push.paoba1.qingcdn.com/live/'
+            var playerUrl = 'rtmp://paoba1.qingcdn.com/live/'
+            var getName = function () {
+                return 'webpushrtmp'
+            };
+
+            var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
+            //var player = new RtmpStreamer(document.getElementById('rtmp-player'));
+
+            // document.getElementById("play").addEventListener("click", function () {
+            //     player.play(playerUrl, getName());
+            // });
+
+            document.getElementById("publish").addEventListener("click", function () {
+                streamer.publish(pushUrl, getName());
+            });
+
+            document.getElementById("streamer-disconnect").addEventListener("click", function () {
+                streamer.disconnect();
+            });
+
+            // document.getElementById("player-disconnect").addEventListener("click", function () {
+            //     player.disconnect();
+            // });
+       
+        }
+    </script>
+</body>
+
+</html>
