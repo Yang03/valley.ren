@@ -47,9 +47,10 @@ rtmp play name:
             var player = new RtmpStreamer(document.getElementById('rtmp-player'));
 
             document.getElementById("play").addEventListener("click", function () {
+                player.setScreenPosition(100, 100)
                 player.play(getUrl(), getName());
                 window.player= player
-                player.setScreenSize(320, 240)
+                
             });
 
             // document.getElementById("publish").addEventListener("click", function () {
