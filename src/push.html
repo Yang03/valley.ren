@@ -13,8 +13,12 @@
 </head>
 
 <body>
-   
-    <h2>Streamer</h2>
+rtmp push address:
+<input id="url" type="text" style="width: 500px;" value="rtmp://push.paoba1.qingcdn.com/live/" title="url">
+<br>
+rtmp push name:
+<input id="stream-name" type="text" style="width: 250px;" value="test" title="stream-name">  
+<h2>Streamer</h2>
 <object>
     <embed id="rtmp-streamer" src="js/RtmpStreamer.swf" bgcolor="#999999" quality="high"
            width="320" height="240" type="application/x-shockwave-flash"></embed>
@@ -29,10 +33,13 @@
     <script src="js/stream.js"></script>
     <script>
         window.onload = function() {
-            var pushUrl = 'rtmp://push.paoba1.qingcdn.com/live/'
-            var playerUrl = 'rtmp://paoba1.qingcdn.com/live/'
+        
+            var getUrl = function () {
+                 return document.getElementById('url').value;
+            };
+
             var getName = function () {
-                return 'webpushrtmp'
+                return document.getElementById('stream-name').value;
             };
 
             var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
@@ -43,7 +50,8 @@
             // });
 
             document.getElementById("publish").addEventListener("click", function () {
-                streamer.publish(pushUrl, getName());
+                streamer.publish(getUrl(), getName());
+                window.streamer = streamer
             });
 
             document.getElementById("streamer-disconnect").addEventListener("click", function () {

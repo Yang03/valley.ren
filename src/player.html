@@ -13,7 +13,12 @@
 </head>
 
 <body>
+
 <h2>Player</h2>
+rtmp play address:
+<input id="url" type="text" style="width: 500px;" value="rtmp://paoba1.qingcdn.com/live/" title="url">
+rtmp play name:
+<input id="stream-name" type="text" style="width: 250px;" value="test" title="stream-name">
 <object>
     <embed id="rtmp-player" src="js/RtmpStreamer.swf" bgcolor="#999999" quality="high"
            width="320" height="240"  type="application/x-shockwave-flash"></embed>
@@ -28,17 +33,23 @@
     <script src="js/stream.js"></script>
     <script>
         window.onload = function() {
-            var pushUrl = 'rtmp://push.paoba1.qingcdn.com/live/'
-            var playerUrl = 'rtmp://paoba1.qingcdn.com/live/'
-            var getName = function () {
-                return 'webpushrtmp'
+            // var pushUrl = 'rtmp://push.paoba1.qingcdn.com/live/'
+            // var playerUrl = 'rtmp://paoba1.qingcdn.com/live/'
+            var getUrl = function () {
+                 return document.getElementById('url').value;
             };
 
-            var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
+            var getName = function () {
+                return document.getElementById('stream-name').value;
+            };
+
+           // var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
             var player = new RtmpStreamer(document.getElementById('rtmp-player'));
 
             document.getElementById("play").addEventListener("click", function () {
-                player.play(playerUrl, getName());
+                player.play(getUrl(), getName());
+                window.player= player
+                player.setScreenSize(320, 240)
             });
 
             // document.getElementById("publish").addEventListener("click", function () {
