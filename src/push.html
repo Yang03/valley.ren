@@ -53,8 +53,10 @@ rtmp push name:
             document.getElementById("publish").addEventListener("click", function () {
                 
                 streamer.publish(getUrl(), getName());
-                streamer.setScreenPosition(100, 100)
                 streamer.setCamMode(640, 480, 30)
+                streamer.setScreenSize(640, 480)
+                streamer.setScreenPosition(100, 100)
+                
                 window.streamer = streamer
             });
 
