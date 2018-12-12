@@ -145,5 +145,9 @@ function RtmpStreamer(elem) {
         _elem.setMicRate(rate);
     }
 
+    this.getCameraList = function(name) {
+        return _elem.getCameraList(name);
+    }
+
 };
 

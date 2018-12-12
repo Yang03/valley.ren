@@ -38,6 +38,7 @@ public class RtmpStreamer extends MovieClip {
 
 
     public function RtmpStreamer() {
+        ExternalInterface.addCallback("getCameraList", getCameraList);
         ExternalInterface.addCallback("setScreenSize", setScreenSize);
         ExternalInterface.addCallback("setScreenPosition", setScreenPosition);
         ExternalInterface.addCallback("setCamMode", setCamMode);
@@ -48,6 +49,7 @@ public class RtmpStreamer extends MovieClip {
         ExternalInterface.addCallback("setMicRate", setMicRate);
 
         ExternalInterface.addCallback("publish", publish);
+       
         ExternalInterface.addCallback("play", playVideo);
         ExternalInterface.addCallback("disconnect", disconnect);
 
@@ -87,6 +89,29 @@ public class RtmpStreamer extends MovieClip {
         _micRate = rate;
     }
 
+    function getCameraList( name:String ): Array {
+        /*try{
+            var camera1:Camera;
+            var cameraCount:uint = Camera.names.length;
+            ExternalInterface.call("console.log", cameraCount);
+            for ( var i:uint = 0; i < cameraCount; ++i ) {
+                
+                camera1 = Camera.getCamera( String(i) );
+                
+                if ( camera1.name == name ) {
+                    ExternalInterface.call("console.log", 'ffff');
+                    return camera1;
+                }
+            }
+            
+        } catch (e:Error){
+             ExternalInterface.call("console.log", e);
+        }   */ 
+        ExternalInterface.call("console.log", Camera.getCamera())
+        var cameraA:Array = Camera.names
+        return cameraA;
+    }
+
     public function publish(url:String, name:String):void {
         this.connect(url, name, function (name:String):void {
             publishCamera(name);
@@ -120,7 +145,6 @@ public class RtmpStreamer extends MovieClip {
 //        Cam
 
         cam = Camera.getCamera();
-
         /**
          * public function setMode(width:int, height:int, fps:Number, favorArea:Boolean = true):void
          *  width:int — The requested capture width, in pixels. The default value is 160.

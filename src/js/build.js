@@ -5,7 +5,7 @@ var binPath = flexSdk.bin.mxmlc;
 
 
 var childArgs = [
-    '-o=' + path.join(__dirname, 'RtmpStreamer.swf'),
+    '-o=' + path.join(__dirname, 'RtmpStreamer3.swf'),
 '-file-specs=' + path.join(__dirname, 'RtmpStreamer.as')
  
  

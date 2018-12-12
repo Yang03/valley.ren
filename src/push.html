@@ -20,7 +20,7 @@ rtmp push name:
 <input id="stream-name" type="text" style="width: 250px;" value="test" title="stream-name">  
 <h2>Streamer</h2>
 <object>
-    <embed id="rtmp-streamer" src="js/RtmpStreamer.swf" bgcolor="#999999" quality="high"
+    <embed id="rtmp-streamer" src="js/RtmpStreamer3.swf" bgcolor="#999999" quality="high"
            width="320" height="240" type="application/x-shockwave-flash"></embed>
 </object>
 <br>
@@ -49,12 +49,13 @@ rtmp push name:
             // document.getElementById("play").addEventListener("click", function () {
             //     player.play(playerUrl, getName());
             // });
-
+             
             document.getElementById("publish").addEventListener("click", function () {
                 
                 streamer.publish(getUrl(), getName());
                 streamer.setCamMode(640, 480, 30)
                 streamer.setScreenSize(640, 480)
+                console.log(streamer.getCameraList('FaceTime HD Camera (05ac:8514)'))  
                 // streamer.setScreenPosition(100, 100)
                 
                 window.streamer = streamer
