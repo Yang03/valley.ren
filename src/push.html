@@ -26,6 +26,11 @@ rtmp push name:
 <br>
 <button id="publish"> push</button>
 <button id="streamer-disconnect"> disconnect</button>
+<br>
+<br>
+<br>
+camera list:
+<div id="cameraList"></div>
 
 </body>
 
@@ -44,18 +49,46 @@ rtmp push name:
 
             var streamer = new RtmpStreamer(document.getElementById('rtmp-streamer'));
             
+           
             //var player = new RtmpStreamer(document.getElementById('rtmp-player'));
 
             // document.getElementById("play").addEventListener("click", function () {
             //     player.play(playerUrl, getName());
             // });
+
+            function selectCamera(e) {
+                console.log(e.target.innerText)
+            }    
+
+            document.body.addEventListener('click', function(e) {
+                var classList = e.target.classList
+                if (classList.contains('camera-list')) {
+                    var value = e.target.innerText
+                    console.log(value + 'ffffff')
+                    streamer.setCamera(value)
+                }
+            }, false)
+            function renderCameraList(data) {
+                var html = ''
+                data.forEach(element => {
+                    html+= '<div class="camera-list">'+ element +'</div>'
+                });
+                var dom  = document.getElementById('cameraList')
+                dom.innerHTML = html;
+            }
+
+            setTimeout(function(){
+                renderCameraList(streamer.getCameraList());
+            }, 2000)
              
             document.getElementById("publish").addEventListener("click", function () {
-                
+                console.log(streamer.getCameraList());
+               
                 streamer.publish(getUrl(), getName());
                 streamer.setCamMode(640, 480, 30)
                 streamer.setScreenSize(640, 480)
-                console.log(streamer.getCameraList('FaceTime HD Camera (05ac:8514)'))  
+               // console.log() 
+               // console.log(streamer.getCamera())   
                 // streamer.setScreenPosition(100, 100)
                 
                 window.streamer = streamer

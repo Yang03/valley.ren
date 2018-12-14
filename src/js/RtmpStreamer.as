@@ -19,6 +19,7 @@ public class RtmpStreamer extends MovieClip {
     internal var nsPlayer:NetStream;
     internal var vidPlayer:Video;
     internal var cam:Camera;
+    internal var cameraName: String;
     internal var mic:Microphone;
 
     internal var _camWidth:int = 640;
@@ -39,6 +40,7 @@ public class RtmpStreamer extends MovieClip {
 
     public function RtmpStreamer() {
         ExternalInterface.addCallback("getCameraList", getCameraList);
+        ExternalInterface.addCallback("setCamera", setCamera);
         ExternalInterface.addCallback("setScreenSize", setScreenSize);
         ExternalInterface.addCallback("setScreenPosition", setScreenPosition);
         ExternalInterface.addCallback("setCamMode", setCamMode);
@@ -89,27 +91,14 @@ public class RtmpStreamer extends MovieClip {
         _micRate = rate;
     }
 
-    function getCameraList( name:String ): Array {
-        /*try{
-            var camera1:Camera;
-            var cameraCount:uint = Camera.names.length;
-            ExternalInterface.call("console.log", cameraCount);
-            for ( var i:uint = 0; i < cameraCount; ++i ) {
-                
-                camera1 = Camera.getCamera( String(i) );
-                
-                if ( camera1.name == name ) {
-                    ExternalInterface.call("console.log", 'ffff');
-                    return camera1;
-                }
-            }
-            
-        } catch (e:Error){
-             ExternalInterface.call("console.log", e);
-        }   */ 
-        ExternalInterface.call("console.log", Camera.getCamera())
+    function getCameraList(): Array {
         var cameraA:Array = Camera.names
         return cameraA;
+    }
+
+    function setCamera(name: String) {
+        ExternalInterface.call("console.log", name);
+        cameraName = name;    
     }
 
     public function publish(url:String, name:String):void {
@@ -129,6 +118,16 @@ public class RtmpStreamer extends MovieClip {
         nc.close();
     }
 
+    private function findIndexOfValue( array:Array, value:* ):int {
+        var length:uint = array.length;
+        for(var i:uint=0; i<length; i++) {
+            if(array[i] == value){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     private function connect(url:String, name:String, callback:Function):void {
         nc = new NetConnection();
         nc.addEventListener(NetStatusEvent.NET_STATUS, function (event:NetStatusEvent):void {
@@ -143,8 +142,14 @@ public class RtmpStreamer extends MovieClip {
 
     private function publishCamera(name:String):void {
 //        Cam
-
-        cam = Camera.getCamera();
+       
+        var cameraNames: Array = Camera.names;
+        var index: int = findIndexOfValue(cameraNames, cameraName);
+        ExternalInterface.call("console.log", 'llll');
+        ExternalInterface.call("console.log", index);
+        ExternalInterface.call("console.log", 'xxxx');
+        cam = Camera.getCamera(String(index));
+       
         /**
          * public function setMode(width:int, height:int, fps:Number, favorArea:Boolean = true):void
          *  width:int — The requested capture width, in pixels. The default value is 160.
