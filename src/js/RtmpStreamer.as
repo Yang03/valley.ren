@@ -9,8 +9,8 @@ import flash.media.Video;
 import flash.media.Camera;
 import flash.media.Microphone;
 
-//import flash.media.H264Profile;
-//import flash.media.H264VideoStreamSettings;
+import flash.media.H264Profile;
+import flash.media.H264VideoStreamSettings;
 
 public class RtmpStreamer extends MovieClip {
 
@@ -169,7 +169,7 @@ public class RtmpStreamer extends MovieClip {
          *  height:int — The requested capture height, in pixels. The default value is 120.
          *  fps:Number — The requested capture frame rate, in frames per second. The default value is 15.
          */
-        cam.setMode(_camWidth, _camHeight, _camFps);
+        cam.setMode(_camWidth, _camHeight, 15);
 
         /**
          * public function setKeyFrameInterval(keyFrameInterval:int):void
@@ -198,9 +198,9 @@ public class RtmpStreamer extends MovieClip {
          * Other values are ignored and results in an error.
          * Supported levels are 1, 1b, 1.1, 1.2, 1.3, 2, 2.1, 2.2, 3, 3.1, 3.2, 4, 4.1, 4.2, 5, and 5.1.
          * Level may be increased if required by resolution and frame rate.
-         */
-//            var h264setting:H264VideoStreamSettings = new H264VideoStreamSettings();
-//            h264setting.setProfileLevel(H264Profile.MAIN, 4);
+         */           
+        var h264setting:H264VideoStreamSettings = new H264VideoStreamSettings();
+        h264setting.setProfileLevel(H264Profile.BASELINE, '3.2');
 
 
 //            Mic
@@ -239,7 +239,7 @@ public class RtmpStreamer extends MovieClip {
 
         ns = new NetStream(nc);
 //        H.264 Setting
-//        ns.videoStreamSettings = h264setting;
+        ns.videoStreamSettings = h264setting;
         ns.attachCamera(cam);
         ns.attachAudio(mic);
         ns.publish(name, "live");
