@@ -10,6 +10,11 @@
     <title>谷人云 - 实时连麦，从此沟通不再延迟</title>
     <link href="css/index.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,7 +36,9 @@ rtmp push name:
 <br>
 camera list:
 <div id="cameraList"></div>
-
+<br>
+microphone
+<div id="microphone"></div>
 </body>
 
     
@@ -63,27 +70,56 @@ camera list:
             document.body.addEventListener('click', function(e) {
                 var classList = e.target.classList
                 if (classList.contains('camera-list')) {
+                    removeClass('camera-list')
                     var value = e.target.innerText
-                    console.log(value + 'ffffff')
-                    streamer.setCamera(value)
+                    e.target.classList.add('active')
+                    const index = e.target.dataset.index
+                    //console.log(index);
+                    streamer.setCamera(index)
+                } else if (classList.contains('microphone-list')) {
+                    removeClass('microphone-list')
+                    var value = e.target.innerText
+                    e.target.classList.add('active')
+                    const index = e.target.dataset.index
+                    console.log(index);
+                    streamer.setMicrophone(index)
                 }
             }, false)
             function renderCameraList(data) {
                 var html = ''
-                data.forEach(element => {
-                    html+= '<div class="camera-list">'+ element +'</div>'
+                data.forEach((element, index) => {
+                    html+= '<div class="camera-list" data-index='+ index +'>'+ element +'</div>'
                 });
                 var dom  = document.getElementById('cameraList')
                 dom.innerHTML = html;
             }
 
+             function renderMicrophone(data) {
+                var html = ''
+                data.forEach((element, index) => {
+                    html+= '<div class="microphone-list" data-index='+ index +'>'+ element +'</div>'
+                });
+                var dom  = document.getElementById('microphone')
+                dom.innerHTML = html;
+            }
+
+            function removeClass( name) {
+                const list = document.getElementsByClassName(name)
+                Array.from(list).forEach(item => {
+                    item.classList.remove('active')
+                })
+            }
+
             setTimeout(function(){
-                renderCameraList(streamer.getCameraList());
+                renderCameraList(streamer.getCamera());
+                renderMicrophone(streamer.getMicrophone());
+                console.log(streamer.getMicrophone());
+               
             }, 2000)
              
             document.getElementById("publish").addEventListener("click", function () {
-                console.log(streamer.getCameraList());
-               
+                console.log(streamer.getCamera());
+                
                 streamer.publish(getUrl(), getName());
                 streamer.setCamMode(640, 480, 30)
                 streamer.setScreenSize(640, 480)

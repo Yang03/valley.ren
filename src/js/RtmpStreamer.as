@@ -19,7 +19,8 @@ public class RtmpStreamer extends MovieClip {
     internal var nsPlayer:NetStream;
     internal var vidPlayer:Video;
     internal var cam:Camera;
-    internal var cameraName: String;
+    internal var cameraIndex: String;
+    internal var microphoneIndex: String;
     internal var mic:Microphone;
 
     internal var _camWidth:int = 640;
@@ -39,7 +40,9 @@ public class RtmpStreamer extends MovieClip {
 
 
     public function RtmpStreamer() {
-        ExternalInterface.addCallback("getCameraList", getCameraList);
+        ExternalInterface.addCallback("getCamera", getCamera);
+        ExternalInterface.addCallback('getMicrophone', getMicrophone);
+         ExternalInterface.addCallback('setMicrophone', setMicrophone);
         ExternalInterface.addCallback("setCamera", setCamera);
         ExternalInterface.addCallback("setScreenSize", setScreenSize);
         ExternalInterface.addCallback("setScreenPosition", setScreenPosition);
@@ -91,14 +94,24 @@ public class RtmpStreamer extends MovieClip {
         _micRate = rate;
     }
 
-    function getCameraList(): Array {
-        var cameraA:Array = Camera.names
+    function getCamera(): Array {
+        var cameraA:Array = Camera.names;
         return cameraA;
     }
 
-    function setCamera(name: String) {
-        ExternalInterface.call("console.log", name);
-        cameraName = name;    
+    function getMicrophone(): Array {
+        var mp: Array = Microphone.names;
+        return mp;
+    }
+
+    function setMicrophone(index: String) {
+        microphoneIndex = String(index); 
+    }
+
+
+    function setCamera(index: String) {
+        ExternalInterface.call("console.log", index);
+        cameraIndex = String(index);    
     }
 
     public function publish(url:String, name:String):void {
@@ -143,12 +156,12 @@ public class RtmpStreamer extends MovieClip {
     private function publishCamera(name:String):void {
 //        Cam
        
-        var cameraNames: Array = Camera.names;
-        var index: int = findIndexOfValue(cameraNames, cameraName);
-        ExternalInterface.call("console.log", 'llll');
-        ExternalInterface.call("console.log", index);
-        ExternalInterface.call("console.log", 'xxxx');
-        cam = Camera.getCamera(String(index));
+        //var cameraNames: Array = Camera.names;
+       // var index: int = findIndexOfValue(cameraNames, cameraName);
+       // ExternalInterface.call("console.log", 'llll');
+       // ExternalInterface.call("console.log", index);
+        //ExternalInterface.call("console.log", 'xxxx');
+        cam = Camera.getCamera(cameraIndex);
        
         /**
          * public function setMode(width:int, height:int, fps:Number, favorArea:Boolean = true):void
@@ -192,7 +205,7 @@ public class RtmpStreamer extends MovieClip {
 
 //            Mic
 
-        mic = Microphone.getMicrophone();
+        mic = Microphone.getMicrophone(int(microphoneIndex));
 
         /*
          * The encoded speech quality when using the Speex codec. Possible values are from 0 to 10. The default value is 6.

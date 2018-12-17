@@ -28,6 +28,7 @@ function RtmpStreamer(elem) {
      * @param name - The RTMP stream name
      */
     this.publish = function (url, name) {
+        console.log(_elem)
         _elem.publish(url, name);
     };
 
@@ -144,13 +145,20 @@ function RtmpStreamer(elem) {
         _elem.setMicRate(rate);
     }
 
-    this.getCameraList = function() {
-        return _elem.getCameraList();
+    this.getCamera = function() {
+        return _elem.getCamera();
     }
 
-    this.setCamera = function(name) {
-        console.log(name + 'fffffffffdddd')
-        return _elem.setCamera(name);
+    this.setCamera = function(index) {
+        return _elem.setCamera(index);
+    }
+
+    this.getMicrophone = function() {
+        return _elem.getMicrophone()
+    }
+
+    this.setMicrophone = function(index) {
+        return _elem.setMicrophone(index)
     }
 
 };
