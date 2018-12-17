@@ -42,7 +42,7 @@ public class RtmpStreamer extends MovieClip {
     public function RtmpStreamer() {
         ExternalInterface.addCallback("getCamera", getCamera);
         ExternalInterface.addCallback('getMicrophone', getMicrophone);
-         ExternalInterface.addCallback('setMicrophone', setMicrophone);
+        ExternalInterface.addCallback('setMicrophone', setMicrophone);
         ExternalInterface.addCallback("setCamera", setCamera);
         ExternalInterface.addCallback("setScreenSize", setScreenSize);
         ExternalInterface.addCallback("setScreenPosition", setScreenPosition);

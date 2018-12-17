@@ -6,12 +6,15 @@ function ValleyStream(conatinerId, options) {
     stream.setAttribute('width', options.width)
     stream.setAttribute('height', options.height)
     conatiner.appendChild(stream); 
-    this.stream = stream;
+    this.stream = stream; 
+    
 }
 
 ValleyStream.prototype.publish = function(url, name) {
     this.stream.publish(url, name)
 }
+
+ValleyStream.prototype.isRaady = function() {}
 
 
 

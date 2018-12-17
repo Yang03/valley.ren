@@ -17,6 +17,7 @@ function RtmpStreamer(elem) {
 
     if (!isReady) {
         setTimeout(function () {
+            //console.log(RtmpStreamer)
             return RtmpStreamer(elem);
         }, 1000);
     }
