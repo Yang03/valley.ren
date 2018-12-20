@@ -1,3 +1,8 @@
+window.setSWFIsReady = function() {
+    console.log(1);
+} 
+
+
 function ValleyStream(conatinerId, options) {
     var conatiner = document.getElementById(conatinerId)
     var stream = document.createElement('object')

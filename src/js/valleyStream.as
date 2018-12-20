@@ -39,7 +39,7 @@ public class valleyStream extends MovieClip {
     internal var _screenY:int = 0;
 
 
-    public function RtmpStreamer() {
+    public function valleyStream() {
         ExternalInterface.addCallback("getCamera", getCamera);
         ExternalInterface.addCallback('getMicrophone', getMicrophone);
         ExternalInterface.addCallback('setMicrophone', setMicrophone);
