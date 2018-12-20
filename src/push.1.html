@@ -53,7 +53,8 @@ microphone
                     height: 240, //窗口高
                     swf: 'js/valleyStream.swf' //swf目录
                })
-               window.valleyStreamReady = function() {
+                window.valleyStreamReady = function() {
+                    console.log('ffffff')
                     stream.push('rtmp://push.paoba1.qingcdn.com/live/', 'test')
                 }
 
